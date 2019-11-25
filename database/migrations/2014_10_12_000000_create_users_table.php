@@ -19,7 +19,12 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            // criado esta linha extra para ficar de acordo com o o nosso DER:
+            $table->string('img_profile', 300);
             $table->rememberToken();
+            // comando abaixo eh para podermos ativar ou dasativar o usuario, para nao apagarmos o usuario e consequentemente apagar todos os produtos que ele criou
+            $table->number('active');
+            // comando abaixo eh automatico e cria default o created_at e o update_at na nossa tabela:
             $table->timestamps();
         });
     }
