@@ -15,8 +15,11 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    //  atributos que posso preencher, apra evitar que as pessoas incluam atributos indesejaveis, sendo estes os campos citados os que o usuario podem preencher ou alterar
+    // incluimos img_profile e active
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'img_profile', 'active'
     ];
 
     /**

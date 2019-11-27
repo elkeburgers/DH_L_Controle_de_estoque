@@ -75,6 +75,10 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            // incluimos:
+            'img_profile' => 'img',
+            // para o php zero eh falso e um eh true, por isso ativo usamos um:
+            'active' => 1
         ]);
     }
 }
