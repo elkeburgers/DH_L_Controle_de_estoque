@@ -15,10 +15,12 @@ class CreateProductsImages extends Migration
     {
         Schema::create('products_images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreign('product_id')->references('id')->on('products');
             $table->string('url_img', 300);
             $table->string('description', 300);
+            $table->unsignedBigInteger('product_id');
             $table->timestamps();
+            //por semantica eh  costume colocar as chaves estrangeiras no final da tabela, para ficar no comeco só o que eh da tabela
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

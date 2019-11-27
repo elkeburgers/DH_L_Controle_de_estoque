@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('img_profile', 300);
             $table->rememberToken();
             // comando abaixo eh para podermos ativar ou dasativar o usuario, para nao apagarmos o usuario e consequentemente apagar todos os produtos que ele criou
-            $table->number('active');
+            $table->integer('active');
             // comando abaixo eh automatico e cria default o created_at e o update_at na nossa tabela:
             $table->timestamps();
         });
