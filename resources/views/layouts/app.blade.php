@@ -1,5 +1,10 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<!-- esse eh um arquivo template, que diz que todas as paginas deverao ter esse formato. Todas as paginas deverao ter menu/header com login/logado, rodape/footer, e deixa uma lacuna chamada de @yeld, onde o conteudo das outras paginas serao inseridas dentro do template. -->
+<!-- a home.blade usa este conteudo, para isso tem que colocar nele no inicio o "@extends('layouts.app')" -->
+<!-- pode ter um template para cada epoca do ano, e mudamos muito mais facilmente num ecommerce para natal e black friday, por exemplo. -->
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,6 +58,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <!-- aqui abaixo a classe auth tem as informacoes do login, e pelo metodo 'user' ele busca o input 'name'. Isso que mostra o nome do ususario na tela quando logado. Podemos usar essa funcao para trazer qualquer informacao do usuario logado. -->
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 

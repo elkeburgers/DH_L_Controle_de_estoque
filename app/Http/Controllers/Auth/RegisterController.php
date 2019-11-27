@@ -71,6 +71,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         // passo 1 - precisamos alterar o padrão do laravel incluindo as informacoes que definimos para a criacao de usuario no nosso BD:
+            // estah tudo dentro da variavel data, com varios inputs: name, email e password
+            //hash: classe que criptografa a senha
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
