@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+// abaixo model 'user' importado depois que nos "criamos", na verdade, completamos.
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -46,6 +47,9 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
+
+     // passo 2 - abaixo (padrao) classe validator existe para restricoes no cadastro, validando ele ainda no formulario (validacao back-end):
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -61,8 +65,12 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+
+
+     // criacao do usuario padrao do laravel, carregando os dados no BD.
     protected function create(array $data)
     {
+        // passo 1 - precisamos alterar o padrão do laravel incluindo as informacoes que definimos para a criacao de usuario no nosso BD:
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
